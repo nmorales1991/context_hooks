@@ -1,28 +1,24 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ProviderState from "./context/ProviderState";
+import ProviderState2 from "./context/ProviderState2";
+import Botones from "./components/Botones";
+import BotonesAlimento from "./components/BotonesAlimento";
+import AlimentoActual from "./components/AlimentoActual";
+import CiudadActual from "./components/CiudadActual";
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+        <React.Fragment>
+            <ProviderState>
+                <Botones />
+                <CiudadActual />
+            </ProviderState>
+            <ProviderState2>
+                <BotonesAlimento />
+                <AlimentoActual />
+            </ProviderState2>
+        </React.Fragment>
+    ); //ProviderState engloba todos sus hijos con el context
+};
 
 export default App;
